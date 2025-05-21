@@ -3,13 +3,19 @@
 #include <stdio.h>
 #include <fstream>
 #include <windows.h>
+#include <cstdlib>
 
 class bank
 {
+    private:
+        int pin;
+        float balance;
+        std::string id, pass, name, fname, address, phone;
     public:
-    void menu();
-    void bank_management();
-    void atm_management();  
+        void menu();
+        void bank_management();
+        void atm_management();
+        void new_user();
 };
 
 
@@ -18,13 +24,13 @@ class bank
     p:
     system("cls");
     char ch;
-    std::string pin, pass, email;
+    std::string input_pin, pass, email;
     int choice;
     std::cout <<"\n\n\t\t\tControl Panel"<< std::endl;
     std::cout <<"\n\n 1. Bank Management";
     std::cout <<"\n 2. ATM Management";
     std::cout <<"\n 3. Exit";
-    std::cout <<"\n\nEnter Your Choise : ";
+    std::cout <<"\n\nEnter Your Choice : ";
     std::cin >> choice;
     switch (choice)
     {
@@ -36,7 +42,7 @@ class bank
             for(int i=1; i<=6; i++)
             {
                 ch = getch();
-                pin += ch;
+                input_pin += ch;
                 std::cout << "*";
             }
             std::cout <<"\n\n Password : ";
@@ -46,7 +52,7 @@ class bank
                 pass += ch;
                 std::cout << "*";
             }
-            if(email == "azad.mamedov777@gmail.com" && pin == "199777" && pass == "199666" )
+            if(email == "azad.mamedov777@gmail.com" && input_pin == "199777" && pass == "199666" )
             {
                 bank_management();  
             }
@@ -55,10 +61,10 @@ class bank
             std::cout << "\n\n Your Email, Pin & Password is Wrong ...";
             }
             break;
-        case 2:
-            atm_management();
+            case 2:
+                atm_management();
             break;
-        case 3:
+            case 3:
             exit(0);
         default:
             std::cout <<"\n\n Invalid Value...Please Try Again...";
@@ -89,6 +95,7 @@ class bank
         switch (choice)
         {
         case 1:
+            new_user();
             // user login & check balance
             break;
         case 2:
@@ -123,16 +130,100 @@ class bank
         goto p;
     }
 
-    void bank::atm_management()
+        void bank::atm_management()
     {
+        p:
+        system("cls");
+        int choice;
+        std::cout << "\n\n\t\t\tATM Management System";
+        std::cout << "\n\n 1. User Login & Check Balance";
+        std::cout << "\n 2. Withdraw Amount";
+        std::cout << "\n 3. Account Detailes";
+        std::cout << "\n 4. Go Back";
+        std::cout << "\n\n Enter Your Choice : ";
+        std::cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            break;
+        case 2:
+        break;
+        case 3:
+            break;
+        case 4:
+            menu();
+        default:
+            std::cout << "\n\n Invalid Value...Please Try Again...";
+        }
+        getch();
+        goto p;
+    }
 
+    void bank::new_user()
+    {
+        p:
+        system("cls");
+        std::fstream file;
+        int p;
+        float b;
+        std::string n, f, pa, a, ph, i;
+        std::cout << "\n\n\t\t\tAdd New User";
+        std::cout << "\n\n User ID : ";
+        std::cin >> id;
+        std::cout << "\n\n\t\tName : ";
+        std::cin >> name;
+        std::cout << "\n\n Father Name : ";
+        std::cin >> fname;
+        std::cout << "\n\n\t\tAddress : ";
+        std::cin >> address;
+        std::cout << "\n\n Pin Code (5 digit) : ";
+        std::cin >> pin;
+        std::cout << "\n\n\t\tPassword : ";
+        std::cin >> pass;
+        std::cout << "\n\n Phone No. :";
+        std::cin >> phone;
+        std::cout << "\n\n\t\tCurrent Balance : ";
+        std::cin >> balance;
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            file.open("bank.txt", std::ios::app | std::ios::out);
+            file << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+            file.close();
+        }
+        else
+        {
+            file >> i >> n >> f >> a >> p >> pa >> ph >> b;
+            while(!file.eof())
+            {
+                if(i == id)
+                {
+                    std::cout << "\n\n User ID Already Exist...";
+                    getch();
+                    goto p;
+                }
+                file >> i >> n >> f >> a >> p >> pa >> ph >> b;
+            }
+            file.close();
+            file.open("bank.txt", std::ios::app | std::ios::out);
+            file << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+            file.close();
+        }
+        std::cout << "\n\n New Account Created Successfully...";
     }
 
 
 
 
 
-main ()
+
+
+
+
+
+
+
+int main ()
 {
 
     bank obj;
