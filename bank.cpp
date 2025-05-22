@@ -16,6 +16,7 @@ class bank
         void bank_management();
         void atm_management();
         void new_user();
+        void already_user();
 };
 
 
@@ -212,7 +213,44 @@ class bank
         std::cout << "\n\n New Account Created Successfully...";
     }
 
-
+void bank::already_user()
+{
+    p:
+    system("cls");
+     std::fstream file;
+    // int p;
+    // float b;
+    // std::string n, f, pa, a, ph, i;
+    std::cout << "\n\n\ Already User Account";
+    // std::cout << "\n\n User ID : ";
+    // std::cin >> id;
+    // std::cout << "\n\n\t\tPassword : ";
+    // std::cin >> pass;
+    file.open("bank.txt", std::ios::in);
+    if(!file)
+    {
+        std::cout << "\n\n File Opening Error...";
+        getch();
+        goto p;
+    }
+    else
+    {
+        file >> i >> n >> f >> a >> p >> pa >> ph >> b;
+        while(!file.eof())
+        {
+            if(i == id && pass == pa)
+            {
+                std::cout << "\n\n User ID & Password is Correct...";
+                getch();
+                goto p;
+            }
+            file >> i >> n >> f >> a >> p >> pa >> ph >> b;
+        }
+        std::cout << "\n\n User ID & Password is Wrong...";
+        getch();
+        goto p;
+    }
+}
 
 
 
