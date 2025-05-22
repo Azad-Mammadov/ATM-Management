@@ -220,8 +220,9 @@ void bank::already_user()
      std::fstream file;
     // int p;
     // float b;
-    // std::string n, f, pa, a, ph, i;
-    std::cout << "\n\n\ Already User Account";
+    std::string t_id;
+    int found=0;
+    std::cout << "\n\n Already User Account";
     // std::cout << "\n\n User ID : ";
     // std::cin >> id;
     // std::cout << "\n\n\t\tPassword : ";
@@ -235,11 +236,18 @@ void bank::already_user()
     }
     else
     {
+
+        std::cout << "\n\n User ID : ";
+        std::cin >> id;
+        file>> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+
+
         file >> i >> n >> f >> a >> p >> pa >> ph >> b;
         while(!file.eof())
         {
-            if(i == id && pass == pa)
+            if(t_id == id)
             {
+                system("cls");
                 std::cout << "\n\n User ID & Password is Correct...";
                 getch();
                 goto p;
