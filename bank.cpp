@@ -100,7 +100,7 @@ class bank
             // user login & check balance
             break;
         case 2:
-            // withdraw amount
+            already_user();
             break;
         case 3:
             // account detailes
@@ -215,52 +215,38 @@ class bank
 
 void bank::already_user()
 {
-    p:
     system("cls");
      std::fstream file;
-    // int p;
-    // float b;
     std::string t_id;
     int found=0;
-    std::cout << "\n\n Already User Account";
-    // std::cout << "\n\n User ID : ";
-    // std::cin >> id;
-    // std::cout << "\n\n\t\tPassword : ";
-    // std::cin >> pass;
+    std::cout << "\n\n\t\t\tAlready User Account";
     file.open("bank.txt", std::ios::in);
     if(!file)
     {
         std::cout << "\n\n File Opening Error...";
-        getch();
-        goto p;
     }
     else
     {
-
         std::cout << "\n\n User ID : ";
-        std::cin >> id;
+        std::cin >> t_id;
         file>> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
 
-
-        file >> i >> n >> f >> a >> p >> pa >> ph >> b;
         while(!file.eof())
         {
             if(t_id == id)
             {
                 system("cls");
-                std::cout << "\n\n User ID & Password is Correct...";
-                getch();
-                goto p;
+                std::cout << "\n\n\t\t\t Already User Account";
+                std::cout << "\n\n User ID: " <<id<< "   Pin Code: " << pin <<"   Password: " << pass;
+                found++;
             }
-            file >> i >> n >> f >> a >> p >> pa >> ph >> b;
+            file>> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
         }
-        std::cout << "\n\n User ID & Password is Wrong...";
-        getch();
-        goto p;
+        file.close();
+        if(found == 0)
+        std::cout << "\n\n User ID Can't Found...";
     }
 }
-
-
 
 
 
