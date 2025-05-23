@@ -291,7 +291,7 @@ class bank
             file.close();
             file1.close();
             remove("bank.txt");
-            remove("bank1.txt", "bank.txt");
+            rename("bank1.txt", "bank.txt");
             if(found == 0)
             std::cout << "\n\n User ID Can't Found...";
         }
@@ -301,10 +301,10 @@ class bank
     {
         std::fstream file, file1;
         std::string t_id;
-        float dep;
+        float with;
         int found=0;
         system("cls");
-        std::cout <<"\n\n\t\t\tDeposit Amount Option";
+        std::cout <<"\n\n\t\t\tWithraw Amount Option";
         file.open("bank.txt", std::ios::in);
         if(!file)
         {
@@ -320,12 +320,20 @@ class bank
             {
                 if(t_id == id)
                 {
-                    std::cout <<"\n\n Amount For Deposit : ";
-                    std::cin >> dep;
-                    balance += dep;
-                    file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                    std::cout <<"\n\n Amount For Withdraw : ";
+                    std::cin >> with;
+                    if(with <= balance)
+                    {
+                        balance -= with;
+                        file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                        found++;
+                        std::cout <<"\n\n\t\t\tYour Amount " <<with << " Successfully Withdraw...";
+                    }
+                    else
+                    {
+                        std::cout << "\n\n\t\t\tYour Balance"<< balance << " is Less...";
+                    }
                     found++;
-                    std::cout <<"\n\n\t\t\tYour Amount " <<dep << " Successfully Deposit...";
                 }
                 else
                 {
@@ -336,7 +344,7 @@ class bank
             file.close();
             file1.close();
             remove("bank.txt");
-            remove("bank1.txt", "bank.txt");
+            rename("bank1.txt", "bank.txt");
             if(found == 0)
             std::cout << "\n\n User ID Can't Found...";
         }
