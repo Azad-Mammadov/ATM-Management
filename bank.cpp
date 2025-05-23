@@ -17,6 +17,8 @@ class bank
         void atm_management();
         void new_user();
         void already_user();
+        void deposit();
+        void withdraw();
 };
 
 
@@ -103,9 +105,10 @@ class bank
             already_user();
             break;
         case 3:
-            // account detailes
+            deposit();
             break;
         case 4:
+            withdraw();
             break;
         case 5:
             // transfer amount
@@ -131,7 +134,7 @@ class bank
         goto p;
     }
 
-        void bank::atm_management()
+    void bank::atm_management()
     {
         p:
         system("cls");
@@ -213,7 +216,7 @@ class bank
         std::cout << "\n\n New Account Created Successfully...";
     }
 
-void bank::already_user()
+    void bank::already_user()
 {
     system("cls");
      std::fstream file;
@@ -249,8 +252,95 @@ void bank::already_user()
 }
 
 
+    void bank::deposit()
+    {
+        std::fstream file, file1;
+        std::string t_id;
+        float dep;
+        int found=0;
+        system("cls");
+        std::cout <<"\n\n\t\t\tDeposit Amount Option";
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        }
+        else
+        {
+            std::cout << "\n\n User ID : ";
+            std::cin >> t_id;
+            file1.open("bank1.txt", std::ios::app | std::ios::out);
+            file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            while(!file.eof())
+            {
+                if(t_id == id)
+                {
+                    std::cout <<"\n\n Amount For Deposit : ";
+                    std::cin >> dep;
+                    balance += dep;
+                    file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                    found++;
+                    std::cout <<"\n\n\t\t\tYour Amount " <<dep << " Successfully Deposit...";
+                }
+                else
+                {
+                    file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                }
+                file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            }
+            file.close();
+            file1.close();
+            remove("bank.txt");
+            remove("bank1.txt", "bank.txt");
+            if(found == 0)
+            std::cout << "\n\n User ID Can't Found...";
+        }
+    }
 
-
+        void bank::withdraw()
+    {
+        std::fstream file, file1;
+        std::string t_id;
+        float dep;
+        int found=0;
+        system("cls");
+        std::cout <<"\n\n\t\t\tDeposit Amount Option";
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        }
+        else
+        {
+            std::cout << "\n\n User ID : ";
+            std::cin >> t_id;
+            file1.open("bank1.txt", std::ios::app | std::ios::out);
+            file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            while(!file.eof())
+            {
+                if(t_id == id)
+                {
+                    std::cout <<"\n\n Amount For Deposit : ";
+                    std::cin >> dep;
+                    balance += dep;
+                    file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                    found++;
+                    std::cout <<"\n\n\t\t\tYour Amount " <<dep << " Successfully Deposit...";
+                }
+                else
+                {
+                    file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                }
+                file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            }
+            file.close();
+            file1.close();
+            remove("bank.txt");
+            remove("bank1.txt", "bank.txt");
+            if(found == 0)
+            std::cout << "\n\n User ID Can't Found...";
+        }
+    }
 
 
 
