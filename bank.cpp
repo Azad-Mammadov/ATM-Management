@@ -19,6 +19,7 @@ class bank
         void already_user();
         void deposit();
         void withdraw();
+        void transfer();
 };
 
 
@@ -111,7 +112,7 @@ class bank
             withdraw();
             break;
         case 5:
-            // transfer amount
+            transfer();
             break; 
         case 6:
             break;
@@ -351,7 +352,58 @@ class bank
     }
 
 
+    void bank::transfer()
+    {
+        std::fstream file, file1;
+        system("cls");
+        std::string s_id, r_id;
+        int found=0;
+        float amount;
+        std::cout << "\n\n\t\t\tPayment Tranfer Option";
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        }
+        else
+        {
+            std::cout << "\n\n Sender User ID For Transaction : ";
+            std::cin >> s_id;
+            std::cout << "\n\n Receiver User ID For Transaction";
+            std::cin >> r_id;
+            std::cout << "\n\n Enter Transfer Amount : ";
+            std::cin >> amount;
+            file1.open("bank1.txt", std::ios::app | std::ios::out);
+            file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            while(!file.eof())
+            {
+                if(s_id == id && amount >= balance)
+                found++; // As
+                else if(r_id == id)
+                found++;
+                if (found == 2)
+                file>> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            }
+            file.close();
+            if(found == 2)
+            {
+                file.open("bank.txt", std::ios::in);
+                file1.open("bank1.txt", std::ios::app | std::ios::out);
+                file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+                while(!file.eof())
+                {
+                    if(s_id == id && amount >= balance)
+                    {
 
+                    }
+                }
+            }
+            else
+            {
+                std::cout << "\n\n\t\t\tBoth Transaction User ID's Invalid...";    
+            }
+        }
+    }    
 
 int main ()
 {
