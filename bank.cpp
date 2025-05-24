@@ -252,7 +252,6 @@ class bank
     }
 }
 
-
     void bank::deposit()
     {
         std::fstream file, file1;
@@ -351,7 +350,6 @@ class bank
         }
     }
 
-
     void bank::transfer()
     {
         std::fstream file, file1;
@@ -369,19 +367,17 @@ class bank
         {
             std::cout << "\n\n Sender User ID For Transaction : ";
             std::cin >> s_id;
-            std::cout << "\n\n Receiver User ID For Transaction";
+            std::cout << "\n\n Receiver User ID For Transaction : ";
             std::cin >> r_id;
             std::cout << "\n\n Enter Transfer Amount : ";
             std::cin >> amount;
-            file1.open("bank1.txt", std::ios::app | std::ios::out);
             file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
             while(!file.eof())
             {
-                if(s_id == id && amount >= balance)
+                if(s_id == id && amount <= balance)
                 found++; // As
                 else if(r_id == id)
                 found++;
-                if (found == 2)
                 file>> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
             }
             file.close();
@@ -392,15 +388,31 @@ class bank
                 file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
                 while(!file.eof())
                 {
-                    if(s_id == id && amount >= balance)
+                    if(s_id == id)
                     {
-
+                        balance -= amount; 
+                        file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";                        
                     }
+                    else if (r_id == id)
+                    {
+                        balance += amount;
+                        file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                    }
+                    else
+                    {
+                        file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                    }
+                    file>> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
                 }
+                file.close();
+                file1.close();
+                remove("bank.txt");
+                rename("bank1.txt", "bank.txt");
+                std::cout << "\n\n\t\t\tTransaction Successfully...";
             }
             else
             {
-                std::cout << "\n\n\t\t\tBoth Transaction User ID's Invalid...";    
+                std::cout << "\n\n\t\t\tBoth Transaction User ID's & Balance Invalid...";    
             }
         }
     }    
