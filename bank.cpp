@@ -116,6 +116,7 @@ class bank
             transfer();
             break; 
         case 6:
+            payment();
             break;
         case 7:
             break;
@@ -417,6 +418,38 @@ class bank
             }
         }
     }    
+
+    void bank::payment()
+    {
+        system("cls");
+        std::fstream file;
+        int found=0;
+        float amount;
+        std::string t_id;
+        std::cout << "\n\n\t\t\tBills Payment Option";
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        }
+        else
+        {
+            std::cout << "\n\n User ID : ";
+            std::cin >> t_id;
+            std::cout << "\n\n Bill Name : ";
+            std::string b_name;
+            std::cout << "\n\n Bill Amount : ";
+            std::cin >> amount;
+            file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            while(!file.eof())
+            {
+                if(t_id == id && amount <= balance)
+                found++;
+                file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            }
+
+        }
+    }
 
 int main ()
 {
