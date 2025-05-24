@@ -20,6 +20,7 @@ class bank
         void deposit();
         void withdraw();
         void transfer();
+        void payment();
 };
 
 
