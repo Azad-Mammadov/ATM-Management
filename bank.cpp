@@ -425,6 +425,7 @@ class bank
         std::fstream file;
         int found=0;
         std::string t_id, b_name;
+        SYSTEMTIME x;
         float amount;
         std::string t_id;
         std::cout << "\n\n\t\t\tBills Payment Option";
@@ -447,6 +448,16 @@ class bank
                 if(t_id == id && amount <= balance)
                 found++;
                 file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            }
+            file.close();
+            if(found == 1)
+            {
+                
+
+            }
+            else
+            {
+                std::cout << "\n\n\t\t\tYour User ID & Balance Invalid...";
             }
 
         }
