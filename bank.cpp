@@ -424,6 +424,7 @@ class bank
         system("cls");
         std::fstream file;
         int found=0;
+        std::string t_id, b_name;
         float amount;
         std::string t_id;
         std::cout << "\n\n\t\t\tBills Payment Option";
