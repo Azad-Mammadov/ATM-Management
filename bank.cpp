@@ -21,6 +21,7 @@ class bank
         void withdraw();
         void transfer();
         void payment();
+        void search();
 };
 
 
@@ -119,6 +120,7 @@ class bank
             payment();
             break;
         case 7:
+            search();
             break;
         case 8:
             break;
@@ -435,13 +437,13 @@ class bank
         }
         else
         {
-            std::cout << "\n\n User ID : ";
+            std::cout << "\n\n Enter User ID : ";
             std::cin >> t_id;
             std::cout << "\n\n Bill Name : ";
             std::cin >> b_name;
             std::cout << "\n\n Bill Amount : ";
             std::cin >> amount;
-            file1.open("bank1.txt", std::ios::app | std::ios::out);
+            //file1.open("bank1.txt", std::ios::app | std::ios::out);
             file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
             while(!file.eof())
             {
@@ -465,16 +467,50 @@ class bank
             {
                 GetSystemTime(&x);
                 file.open("Bill.txt", std::ios::app | std::ios::out);
-                file << " " << t_id << " " << b_name << " " << amount << " " << x.wDay << "/" << x.wMonth << "/" << x.wYear << "\n";
+                file << t_id << " " << b_name << " " << amount << " " << x.wDay << "/" << x.wMonth << "/" << x.wYear << "\n";
                 file.close();
                 std::cout << "\n\n\t\t\t" << b_name << " Bill Pay Successfully...";
-
             }
             else
             {
                 std::cout << "\n\n User ID or Amount Invalid...";
             }
+        }
+    }
 
+    void bank::search()
+    {
+        system("cls");
+        std::fstream file;
+        std::string t_id;
+        int found=0;
+        std::cout << "\n\n\t\t\tSearch User Record";
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        }
+        else
+        {
+            std::cout << "\n\n User ID : ";
+            std::cin >> t_id;
+            file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            while(!file.eof())
+            {
+                if(t_id == id)
+                {
+                    system("cls");
+                    std::cout << "\n\n\t\t\tSearch User Record";
+                    std::cout << "\n\n\n User ID: " << id << " Name: " << name << " Father's Name: " << fname;
+                    std::cout << "\n Address: " << address << " Pin: " << pin << " Password: " << pass;
+                    std::cout << "\n Phone No.: " << phone << "Current  Balance: " << balance;
+                    found++;
+                }
+                file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            }
+            file.close();
+            if(found == 0)
+                std::cout << "\n\n User ID Can't Found...";
         }
     }
 
