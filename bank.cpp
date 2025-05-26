@@ -422,12 +422,11 @@ class bank
     void bank::payment()
     {
         system("cls");
-        std::fstream file;
+        std::fstream file, file1;
         int found=0;
         std::string t_id, b_name;
         SYSTEMTIME x;
         float amount;
-        std::string t_id;
         std::cout << "\n\n\t\t\tBills Payment Option";
         file.open("bank.txt", std::ios::in);
         if(!file)
@@ -439,25 +438,41 @@ class bank
             std::cout << "\n\n User ID : ";
             std::cin >> t_id;
             std::cout << "\n\n Bill Name : ";
-            std::string b_name;
+            std::cin >> b_name;
             std::cout << "\n\n Bill Amount : ";
             std::cin >> amount;
+            file1.open("bank1.txt", std::ios::app | std::ios::out);
             file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
             while(!file.eof())
             {
                 if(t_id == id && amount <= balance)
-                found++;
+                {
+                    balance -= amount;
+                    file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                    found++;
+                }
+                else
+                {
+                    file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                }
                 file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
             }
             file.close();
+            file1.close();
+            remove("bank.txt");
+            rename("bank1.txt", "bank.txt");
             if(found == 1)
             {
-                
+                GetSystemTime(&x);
+                file.open("Bill.txt", std::ios::app | std::ios::out);
+                file << " " << t_id << " " << b_name << " " << amount << " " << x.wDay << "/" << x.wMonth << "/" << x.wYear << "\n";
+                file.close();
+                std::cout << "\n\n\t\t\t" << b_name << " Bill Pay Successfully...";
 
             }
             else
             {
-                std::cout << "\n\n\t\t\tYour User ID & Balance Invalid...";
+                std::cout << "\n\n User ID or Amount Invalid...";
             }
 
         }
