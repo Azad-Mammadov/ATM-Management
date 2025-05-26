@@ -1,3 +1,5 @@
  100AM  500 25/5/2025
  100AM Electricity 707 25/5/2025
 100LH Electricity 50 26/5/2025
+100LH Electricity 55 26/5/2025
+100AM Customs 0 26/5/2025

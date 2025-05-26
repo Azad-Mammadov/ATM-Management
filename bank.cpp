@@ -443,7 +443,7 @@ class bank
             std::cin >> b_name;
             std::cout << "\n\n Bill Amount : ";
             std::cin >> amount;
-            //file1.open("bank1.txt", std::ios::app | std::ios::out);
+            file1.open("bank1.txt", std::ios::app | std::ios::out);
             file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
             while(!file.eof())
             {
