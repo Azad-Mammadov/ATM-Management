@@ -35,20 +35,21 @@ class bank
             for(int i=0;i<=60;i++)
             std::cout << "*";
             std::cout <<"\n\t\t\t ";
-            for(int i=1;i<=59;i++)
+            for(int i=1;i<=58;i++)
             std::cout <<"*";
             std::cout <<"\n\t\t\t  ";
-            for(int i=1; i<=58;i++)
+            for(int i=1; i<=56;i++)
             std::cout <<"*";
-            std::cout <<"\n\n\t\t\t Bank & ATM\n\t\t\t Management System\n\t\t\t Project In C++\n\n\t\t\t  ";
-            for(int i=1; i<=58;i++)
+            std::cout <<"\n\n\t\t\t Bank & ATM\n\t\t\t Management System\n\n\t\t Project In C++\n\n\t\t\t  ";
+            for(int i=1; i<=56;i++)
             std::cout <<"*";
             std::cout <<"\n\t\t\t ";
-            for(int i=1;i<=59;i++)
+            for(int i=1;i<=58;i++)
             std::cout <<"*";
-            std::cout <<"\n\t\t\t";
+            std::cout <<"\n\t";
             for(int i=0;i<=60;i++)
             std::cout << "*";
+            getch();
 }
 
 
