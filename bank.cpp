@@ -26,6 +26,7 @@ class bank
         void del();
         void show_records();
         void show_payment();
+        void user_balance();
 };
 
 
@@ -162,6 +163,7 @@ class bank
         switch (choice)
         {
         case 1:
+            user_balance();
             break;
         case 2:
         break;
@@ -683,6 +685,17 @@ class bank
         }
     }
 
+    void bank::user_balance()
+    {
+     system("cls");
+     std::fstream file;
+     std::cout << "\n\n\t\t\tUser Login & Check Balance";
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        }
+    }
 int main ()
 {
 
