@@ -8,9 +8,8 @@
 class bank
 {
     private:
-        int pin;
         float balance;
-        std::string id, pass, name, fname, address, phone;
+        std::string id, pass, name, fname, address, phone, pin;
     public:
         void menu();
         void bank_management();
@@ -197,7 +196,7 @@ class bank
         std::cin >> address;
         std::cout << "\n\n Pin Code (5 digit) : ";
         std::cin >> pin;
-        std::cout << "\n\n\t\tPassword : ";
+        std::cout << "\n\n\t\tPassword (5 digit) : ";
         std::cin >> pass;
         std::cout << "\n\n Phone No. :";
         std::cin >> phone;
@@ -689,12 +688,46 @@ class bank
     {
      system("cls");
      std::fstream file;
+     int found=0;
+     std::string t_id, t_pin, t_pass;
+     char ch;
      std::cout << "\n\n\t\t\tUser Login & Check Balance";
         file.open("bank.txt", std::ios::in);
         if(!file)
         {
             std::cout << "\n\n File Opening Error...";
         }
+        else
+        {
+            std::cout << "\n\n User ID : ";
+            std::cin >> t_id;
+            std::cout << "\n\n\t\tPin Code : ";
+            for(int i=1; i<=6; i++)
+            {
+                ch = getch();
+                t_pin += ch;
+                std::cout << "*";
+            }
+            std::cout << "\n\n Password : ";
+            for (int i=1; i<=5; i++)
+            {
+                ch = getch();
+                t_pass += ch;
+                std::cout << "*";
+            }
+            file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            while(!file.eof())
+            {
+                if(t_id == id && t_pin == pin && t_pass == pass)
+                {
+                    std::cout << "\n\n\t\t\tYour Current Balance is : " << balance;
+                    found++;
+                }
+                file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+        }
+        file.close();
+        if(found == 0)
+        std::cout << "\n\n\t\t\tUser ID, Pin & Password is Wrong...";
     }
 int main ()
 {
