@@ -3,3 +3,4 @@
 100LH Electricity 50 26/5/2025
 100LH Electricity 55 26/5/2025
 100AM Customs 0 26/5/2025
+100AM Wifi 285 27/5/2025

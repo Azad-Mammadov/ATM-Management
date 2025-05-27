@@ -22,6 +22,10 @@ class bank
         void transfer();
         void payment();
         void search();
+        void edit();
+        void del();
+        void show_records();
+        void show_payment();
 };
 
 
@@ -63,15 +67,15 @@ class bank
                 bank_management();  
             }
             else
-            {
-            std::cout << "\n\n Your Email, Pin & Password is Wrong ...";
-            }
-            break;
+                {
+                std::cout << "\n\n Your Email, Pin & Password is Wrong ...";
+                }
+                break;
             case 2:
                 atm_management();
-            break;
+                break;
             case 3:
-            exit(0);
+                exit(0);
         default:
             std::cout <<"\n\n Invalid Value...Please Try Again...";
         }
@@ -123,12 +127,16 @@ class bank
             search();
             break;
         case 8:
+            edit();
             break;
         case 9:
+            del();
             break;
         case 10:
+            show_records();
             break;     
         case 11:
+            show_payment();
             break;
         case 12:
             menu();               
@@ -511,6 +519,167 @@ class bank
             file.close();
             if(found == 0)
                 std::cout << "\n\n User ID Can't Found...";
+        }
+    }
+
+    void bank::edit()
+    {
+        system("cls");
+        std::fstream file, file1;
+        std::string t_id,n, f, a, p, ph;
+        int found=0, pi;
+        std::cout <<"\n\n\t\t\tEdit User Record";
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        }
+        else
+        {
+            std::cout << "\n\n User ID : ";
+            std::cin >> t_id;
+            file1.open("bank1.txt", std::ios::app | std::ios::out);
+            file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            while(!file.eof())
+            {
+                if(t_id == id)
+                {
+                    std::cout << "\n\n\t\tName : ";
+                    std::cin >> n;
+                    std::cout << "\n\n\t\t Father Name : ";
+                    std::cin >> f;
+                    std::cout << "\n\n\t\tAddress : ";
+                    std::cin >> a;
+                    std::cout << "\n\n\t\tPin Code (5 digit) : ";
+                    std::cin >> pi;
+                    std::cout << "\n\n\t\tPassword : ";
+                    std::cin >> p;
+                    std::cout << "\n\n\t\tPhone No. : ";
+                    std::cin >> ph;
+                    file1 << " " << id << " " << n << " " << f << " " << a << " " << pi << " " << p << " " << ph << " " << balance << "\n";
+                    std::cout << "\n\n\t\t\tRecord Edit Successfully...";
+                    found++;
+                }
+                else
+                {
+                    file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                }
+                file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            }
+            file.close();
+            file1.close();
+            remove("bank.txt");
+            rename("bank1.txt", "bank.txt");
+            if(found == 0)
+                std::cout << "\n\n User ID Can't Found...";
+        }
+    }
+
+    void bank::del()
+    {
+        system("cls");
+        std::fstream file, file1;
+        std::string t_id;
+        int found=0;
+        std::cout <<"\n\n\t\t\tEdit User Record";
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        }
+        else
+        {
+            std::cout << "\n\n User ID : ";
+            std::cin >> t_id;
+            file1.open("bank1.txt", std::ios::app | std::ios::out);
+            file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            while(!file.eof())
+            {
+                if(t_id == id)
+                {
+                    std::cout << "\n\n\t\t\tRecord Deleted Successfully...";
+                    found++;
+                }
+                else
+                {
+                    file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                }
+                file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            }
+            file.close();
+            file1.close();
+            remove("bank.txt");
+            rename("bank1.txt", "bank.txt");
+            if(found == 0)
+                std::cout << "\n\n User ID Can't Found...";
+        }
+    }
+
+    void bank::show_records()
+    {
+        system("cls");
+        std::fstream file;
+        int found=0;
+        std::cout << "\n\n\t\t\tShow All User's Records";
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        }
+        else
+        {
+            file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            while(!file.eof())
+            {
+                std::cout << "\n\n\n User ID : "<<id;
+                std::cout <<"\n Name : " << name;
+                std::cout <<"\n Father's Name : " << fname;
+                std::cout <<"\n Address : " << address;
+                std::cout <<"\n Pin : " << pin;
+                std::cout <<"\n Password : " << pass;
+                std::cout <<"\n Phone No. : " << phone;
+                std::cout <<"\n Current Balance : " << balance;
+                std::cout << "\n\n----------------------------------------";
+                file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+                found++;
+            }
+
+            file.close();
+             if(found == 0)
+            std::cout <<"\n\n Data base is Empty...";
+        }
+    }
+
+     void bank::show_payment()
+    {
+        system("cls");
+        std::fstream file;
+        int found=0;
+        float amount;
+        std::string c_date;
+        std::cout << "\n\n\t\t\tShow All Bill's Records";
+        file.open("bill.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        }
+        else
+        {
+            file >> id >> name >> amount >> c_date;
+            while(!file.eof())
+            {
+                std::cout << "\n\n\n User ID : "<<id;
+                std::cout <<"\n Bill Name : " << name;
+                std::cout <<"\n Bill Amount : " << amount;
+                std::cout <<"\n Date : " << c_date;
+                std::cout << "\n\n----------------------------------------";
+                file >> id >> name >> amount >> c_date;
+                found++;
+            }
+
+            file.close();
+             if(found == 0)
+            std::cout <<"\n\n Data base is Empty...";
         }
     }
 
