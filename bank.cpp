@@ -26,7 +26,19 @@ class bank
         void show_records();
         void show_payment();
         void user_balance();
+
 };
+
+        void introduction()
+        {
+            std::cout << "\n\n\n\n\t\t\t";
+            for(int i=0;i<=60;i++)
+            std::cout << "*";
+            std::cout <<"\n\t\t\t ";
+            for(int i=1;i<=59;i++)
+            std::cout <<"*";
+
+std::cout <<"";        }
 
 
    void bank::menu()
@@ -702,7 +714,7 @@ class bank
             std::cout << "\n\n User ID : ";
             std::cin >> t_id;
             std::cout << "\n\n\t\tPin Code : ";
-            for(int i=1; i<=6; i++)
+            for(int i=1; i<=5; i++)
             {
                 ch = getch();
                 t_pin += ch;
@@ -724,15 +736,22 @@ class bank
                     found++;
                 }
                 file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
-        }
+            }
         file.close();
         if(found == 0)
         std::cout << "\n\n\t\t\tUser ID, Pin & Password is Wrong...";
+        }
     }
-int main ()
+
+
+
+
+
+    int main ()
 {
 
     bank obj;
+    introduction();
     obj.menu();
 
     return 0;
