@@ -26,30 +26,46 @@ class bank
         void show_records();
         void show_payment();
         void user_balance();
+        void withdraw_atm();
 
 };
 
         void introduction()
         {
-            std::cout << "\n\n\n\n\t\t\t";
+            std::cout << "\n\n\n\n\n\t";
             for(int i=0;i<=60;i++)
             std::cout << "*";
-            std::cout <<"\n\t\t\t ";
+            std::cout <<"\n\t ";
             for(int i=1;i<=58;i++)
             std::cout <<"*";
-            std::cout <<"\n\t\t\t  ";
+            std::cout <<"\n\t  ";
             for(int i=1; i<=56;i++)
             std::cout <<"*";
-            std::cout <<"\n\n\t\t\t Bank & ATM\n\t\t\t Management System\n\n\t\t Project In C++\n\n\t\t\t  ";
+            std::cout <<"\n\n\t\t\t Bank & ATM Management System\n\n\t\t\t\t Project In C++\n\n\t  ";
             for(int i=1; i<=56;i++)
             std::cout <<"*";
-            std::cout <<"\n\t\t\t ";
+            std::cout <<"\n\t ";
             for(int i=1;i<=58;i++)
             std::cout <<"*";
             std::cout <<"\n\t";
             for(int i=0;i<=60;i++)
             std::cout << "*";
             getch();
+            system("cls");
+            std::cout << "\n\t";
+            for(int i=1;i<=40;i++)
+            std::cout <<"*";
+            std::cout <<"\n\t  ";
+            for(int i=1; i<=40;i++)
+            std::cout <<"*";
+            std::cout <<"\n\n\t\t\t Author: Azad Mammadov \n\n\t  ";
+            for(int i=1; i<=40;i++)
+            std::cout <<"*";
+            std::cout <<"\n\t ";
+            for(int i=1;i<=40;i++)
+            std::cout <<"*";
+            getch();
+           
 }
 
 
@@ -189,7 +205,8 @@ class bank
             user_balance();
             break;
         case 2:
-        break;
+            withdraw_atm();
+            break;
         case 3:
             break;
         case 4:
@@ -756,7 +773,12 @@ class bank
     }
 
 
-
+    void bank::withdraw_atm()
+    {
+        system("cls");
+        std::cout <<"\n\n\t\t\tWith";
+        
+    }
 
 
     int main ()
