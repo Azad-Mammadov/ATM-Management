@@ -27,6 +27,7 @@ class bank
         void show_payment();
         void user_balance();
         void withdraw_atm();
+        void check_detail();
 
 };
 
@@ -208,6 +209,7 @@ class bank
             withdraw_atm();
             break;
         case 3:
+            check_detail();
             break;
         case 4:
             menu();
@@ -842,6 +844,77 @@ class bank
                 std::cout << "\n\n User ID Can't Found...";
         }
     }    
+
+    void bank::check_detail()
+    {
+        
+        std::fstream file, file1;
+        int found=0;
+        char ch;
+        std::string t_id, t_pin, t_pass;
+        float with;
+        system("cls");
+        std::cout << "\n\n\t\t\tWithdraw Amount Option";
+        file.open("bank.txt", std::ios::in);
+        if(!file)
+        {
+            std::cout << "\n\n File Opening Error...";
+        
+        }
+        else
+        {
+            std::cout << "\n\n User ID : ";
+            std::cin >> t_id;
+            std::cout << "\n\n\t\tPin Code : ";
+            for(int i=1; i<=5; i++)
+            {
+                ch = getch();
+                pin += ch;
+                std::cout << "*";
+            }
+            std::cout << "\n\n Password : ";
+            for (int i=1; i<=5; i++)
+            {
+                ch = getch();
+                pass += ch;
+                std::cout << "*";
+            }
+            file1.open("bank1.txt", std::ios::app | std::ios::out);
+            file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            while(!file.eof())
+            {
+                if(t_id == id && t_pin == pin && t_pass == pass)
+                {
+                    std::cout << "\n\n Amount For Withdraw : ";
+                    std::cin >> with;
+                    if(with <= balance)
+                    {
+                        balance -= with;
+                        file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                        std::cout << "\n\n\t\t\tYour Amount" << with << "Successfully Withdraw...";
+                        std::cout << "\n\n\t\t\t   Your Current Balance is :" << balance;
+                    }
+                    else
+                    {
+                        file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance;
+                        std::cout << "\n\n\t\t\tYour Current Balance " << balance << " is Less...";
+                    }
+                    found++;
+                }
+                else
+                {
+                    file1 << " " << id << " " << name << " " << fname << " " << address << " " << pin << " " << pass << " " << phone << " " << balance << "\n";
+                }
+                file >> id >> name >> fname >> address >> pin >> pass >> phone >> balance;
+            }
+            file.close();
+            file1.close();
+            remove("bank.txt");
+            rename("bank1.txt", "bank.txt");
+            if(found == 0)
+                std::cout << "\n\n User ID Can't Found...";
+        }
+    }
 
 
     int main ()
