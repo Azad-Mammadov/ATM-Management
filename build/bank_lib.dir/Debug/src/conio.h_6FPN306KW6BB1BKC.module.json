@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "bank_lib.dir\\Debug\\src\\conio.h_6FPN306KW6BB1BKC.obj",
+            "outputs": [
+                "C:\\Users\\AzadMammadov\\Documents\\GitHub\\ATM-Management\\build\\Debug\\bank_lib.pdb",
+                "bank_lib.dir\\Debug\\src\\conio.h_6FPN306KW6BB1BKC.module.json",
+                "bank_lib.dir\\Debug\\src\\conio.h_6FPN306KW6BB1BKC.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\conio.h",
+                    "source-path": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\conio.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

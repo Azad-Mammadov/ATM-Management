@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "bank_lib.dir\\Debug\\src\\stdio.h_7MN1007FS9JGE28W.obj",
+            "outputs": [
+                "C:\\Users\\AzadMammadov\\Documents\\GitHub\\ATM-Management\\build\\Debug\\bank_lib.pdb",
+                "bank_lib.dir\\Debug\\src\\stdio.h_7MN1007FS9JGE28W.module.json",
+                "bank_lib.dir\\Debug\\src\\stdio.h_7MN1007FS9JGE28W.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\stdio.h",
+                    "source-path": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\stdio.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

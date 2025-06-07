@@ -1,0 +1,4 @@
+C:/Users/AzadMammadov/Documents/GitHub/ATM-Management/build/CMakeFiles/bank_lib.dir
+C:/Users/AzadMammadov/Documents/GitHub/ATM-Management/build/CMakeFiles/bank_test.dir
+C:/Users/AzadMammadov/Documents/GitHub/ATM-Management/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/AzadMammadov/Documents/GitHub/ATM-Management/build/CMakeFiles/ZERO_CHECK.dir

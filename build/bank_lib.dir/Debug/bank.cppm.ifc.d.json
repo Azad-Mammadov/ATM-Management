@@ -1,0 +1,35 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\azadmammadov\\documents\\github\\atm-management\\src\\bank.cppm",
+        "ProvidedModule": "bank",
+        "Includes": [],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": [
+            {
+                "Header": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\iostream",
+                "BMI": "C:\\Users\\AzadMammadov\\Documents\\GitHub\\ATM-Management\\build\\bank_lib.dir\\Debug\\src\\iostream_6YTNORJJXX0QZ88Z.ifc"
+            },
+            {
+                "Header": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\conio.h",
+                "BMI": "C:\\Users\\AzadMammadov\\Documents\\GitHub\\ATM-Management\\build\\bank_lib.dir\\Debug\\src\\conio.h_6FPN306KW6BB1BKC.ifc"
+            },
+            {
+                "Header": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\stdio.h",
+                "BMI": "C:\\Users\\AzadMammadov\\Documents\\GitHub\\ATM-Management\\build\\bank_lib.dir\\Debug\\src\\stdio.h_7MN1007FS9JGE28W.ifc"
+            },
+            {
+                "Header": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\fstream",
+                "BMI": "C:\\Users\\AzadMammadov\\Documents\\GitHub\\ATM-Management\\build\\bank_lib.dir\\Debug\\src\\fstream_BID4ITDZJ3HQX13Q.ifc"
+            },
+            {
+                "Header": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\um\\windows.h",
+                "BMI": "C:\\Users\\AzadMammadov\\Documents\\GitHub\\ATM-Management\\build\\bank_lib.dir\\Debug\\src\\windows.h_K242IOPVJPRIQB2U.ifc"
+            },
+            {
+                "Header": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\cstdlib",
+                "BMI": "C:\\Users\\AzadMammadov\\Documents\\GitHub\\ATM-Management\\build\\bank_lib.dir\\Debug\\src\\cstdlib_IQ4DO0Y4P5F0VZXI.ifc"
+            }
+        ]
+    }
+}

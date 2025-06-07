@@ -1,0 +1,59 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "bank_lib.dir\\Debug\\/src/bank.cppm.obj",
+            "outputs": [
+                "C:\\Users\\AzadMammadov\\Documents\\GitHub\\ATM-Management\\build\\Debug\\bank_lib.pdb",
+                "bank_lib.dir\\Debug\\",
+                "C:\\Users\\AzadMammadov\\Documents\\GitHub\\ATM-Management\\build\\bank_lib.dir\\Debug\\bank.cppm.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "bank",
+                    "source-path": "c:\\users\\azadmammadov\\documents\\github\\atm-management\\src\\bank.cppm",
+                    "is-interface": true
+                }
+            ],
+            "requires": [
+                {
+                    "logical-name": "iostream",
+                    "source-path": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\iostream",
+                    "lookup-method": "include-angle",
+                    "unique-on-source-path": true
+                },
+                {
+                    "logical-name": "conio.h",
+                    "source-path": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\conio.h",
+                    "lookup-method": "include-quote",
+                    "unique-on-source-path": true
+                },
+                {
+                    "logical-name": "stdio.h",
+                    "source-path": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\stdio.h",
+                    "lookup-method": "include-quote",
+                    "unique-on-source-path": true
+                },
+                {
+                    "logical-name": "fstream",
+                    "source-path": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\fstream",
+                    "lookup-method": "include-angle",
+                    "unique-on-source-path": true
+                },
+                {
+                    "logical-name": "windows.h",
+                    "source-path": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\um\\windows.h",
+                    "lookup-method": "include-quote",
+                    "unique-on-source-path": true
+                },
+                {
+                    "logical-name": "cstdlib",
+                    "source-path": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\cstdlib",
+                    "lookup-method": "include-angle",
+                    "unique-on-source-path": true
+                }
+            ]
+        }
+    ]
+}
