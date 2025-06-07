@@ -1,11 +1,12 @@
 export module bank;
 
-import std.iostream;
-//#include <conio.h>
-//#include <stdio.h>
-import std.fstream;
-//#include <windows.h>
-import std.cstdlib;
+//import std;
+import <iostream>;
+import "conio.h";
+import "stdio.h";
+import <fstream>;
+import "windows.h";
+import <cstdlib>;
 
 
 class bank
@@ -31,5 +32,4 @@ class bank
         void user_balance();
         void withdraw_atm();
         void check_detail();
-
 };
