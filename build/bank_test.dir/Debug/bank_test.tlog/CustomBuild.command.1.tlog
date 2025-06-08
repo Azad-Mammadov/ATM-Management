@@ -1,0 +1,10 @@
+^C:\USERS\AZADMAMMADOV\DOCUMENTS\GITHUB\ATM-MANAGEMENT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AzadMammadov/Documents/GitHub/ATM-Management -BC:/Users/AzadMammadov/Documents/GitHub/ATM-Management/build --check-stamp-file C:/Users/AzadMammadov/Documents/GitHub/ATM-Management/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

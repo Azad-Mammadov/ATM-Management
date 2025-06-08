@@ -1,10 +1,7 @@
 module bank;
 
 
-
-
-
-        void introduction()
+        void bank::introduction()
         {
             std::cout << "\n\n\n\n\n\t";
             for(int i=0;i<=60;i++)
@@ -24,7 +21,7 @@ module bank;
             std::cout <<"\n\t";
             for(int i=0;i<=60;i++)
             std::cout << "*";
-            getch();
+            _getch();
             system("cls");
             std::cout << "\n\t";
             for(int i=1;i<=40;i++)
@@ -38,7 +35,7 @@ module bank;
             std::cout <<"\n\t ";
             for(int i=1;i<=40;i++)
             std::cout <<"*";
-            getch();
+            _getch();
            
 }
 
@@ -65,14 +62,14 @@ module bank;
             std::cout <<"\n\n\t\t Pin Code : "; 
             for(int i=1; i<=6; i++)
             {
-                ch = getch();
+                ch = _getch();
                 input_pin += ch;
                 std::cout << "*";
             }
             std::cout <<"\n\n Password : ";
             for(int i=1; i<=6; i++)
             {
-                ch = getch();
+                ch = _getch();
                 pass += ch;
                 std::cout << "*";
             }
@@ -93,7 +90,7 @@ module bank;
         default:
             std::cout <<"\n\n Invalid Value...Please Try Again...";
         }
-        getch();
+        _getch();
         goto p;
     }
     void bank::bank_management()
@@ -157,7 +154,7 @@ module bank;
         default:
             std::cout << "\n\n Invalid Value...Please Try Again...";
         }
-        getch();
+        _getch();
         goto p;
     }
 
@@ -189,7 +186,7 @@ module bank;
         default:
             std::cout << "\n\n Invalid Value...Please Try Again...";
         }
-        getch();
+        _getch();
         goto p;
     }
 
@@ -233,7 +230,7 @@ module bank;
                 if(i == id)
                 {
                     std::cout << "\n\n User ID Already Exist...";
-                    getch();
+                    _getch();
                     goto p;
                 }
                 file >> i >> n >> f >> a >> p >> pa >> ph >> b;
@@ -720,14 +717,14 @@ module bank;
             std::cout << "\n\n\t\tPin Code : ";
             for(int i=1; i<=5; i++)
             {
-                ch = getch();
+                ch = _getch();
                 t_pin += ch;
                 std::cout << "*";
             }
             std::cout << "\n\n Password : ";
             for (int i=1; i<=5; i++)
             {
-                ch = getch();
+                ch = _getch();
                 t_pass += ch;
                 std::cout << "*";
             }
@@ -746,7 +743,6 @@ module bank;
         std::cout << "\n\n\t\t\tUser ID, Pin & Password is Wrong...";
         }
     }
-
 
     void bank::withdraw_atm()
     {
@@ -770,14 +766,14 @@ module bank;
             std::cout << "\n\n\t\tPin Code : ";
             for(int i=1; i<=5; i++)
             {
-                ch = getch();
+                ch = _getch();
                 t_pin += ch;
                 std::cout << "*";
             }
             std::cout << "\n\n Password : ";
             for (int i=1; i<=5; i++)
             {
-                ch = getch();
+                ch = _getch();
                 t_pass += ch;
                 std::cout << "*";
             }
@@ -840,14 +836,14 @@ module bank;
             std::cout << "\n\n\t\tPin Code : ";
             for(int i=1; i<=5; i++)
             {
-                ch = getch();
+                ch = _getch();
                 t_pin += ch;
                 std::cout << "*";
             }
             std::cout << "\n\n Password : ";
             for (int i=1; i<=5; i++)
             {
-                ch = getch();
+                ch = _getch();
                 t_pass += ch;
                 std::cout << "*";
             }
@@ -874,5 +870,4 @@ module bank;
             std::cout << "\n\n User ID Can't Found...";
         }
     }
-
 

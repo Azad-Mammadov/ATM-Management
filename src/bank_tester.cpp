@@ -5,7 +5,7 @@ import bank;
 {
 
     bank obj;
-    introduction();
+    bank::introduction();
     obj.menu();
 
     return 0;

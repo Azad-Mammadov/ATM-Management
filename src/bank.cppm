@@ -2,19 +2,23 @@ export module bank;
 
 //import std;
 import <iostream>;
-import "conio.h";
-import "stdio.h";
+import <string>;
+import <conio.h>;
+import <stdio.h>;
 import <fstream>;
-import "windows.h";
+import <windows.h>;
 import <cstdlib>;
 
 
+//export void introduction();
 export class bank
 {
     private:
         float balance;
         std::string id, pass, name, fname, address, phone, pin;
     public:
+        bank() = default;
+        static void introduction();
         void menu();
         void bank_management();
         void atm_management();
@@ -33,3 +37,6 @@ export class bank
         void withdraw_atm();
         void check_detail();
 };
+
+
+export void bank::introduction();

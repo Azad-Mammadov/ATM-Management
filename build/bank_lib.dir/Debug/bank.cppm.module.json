@@ -24,15 +24,21 @@
                     "unique-on-source-path": true
                 },
                 {
+                    "logical-name": "string",
+                    "source-path": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.44.35207\\include\\string",
+                    "lookup-method": "include-angle",
+                    "unique-on-source-path": true
+                },
+                {
                     "logical-name": "conio.h",
                     "source-path": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\conio.h",
-                    "lookup-method": "include-quote",
+                    "lookup-method": "include-angle",
                     "unique-on-source-path": true
                 },
                 {
                     "logical-name": "stdio.h",
                     "source-path": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\ucrt\\stdio.h",
-                    "lookup-method": "include-quote",
+                    "lookup-method": "include-angle",
                     "unique-on-source-path": true
                 },
                 {
@@ -44,7 +50,7 @@
                 {
                     "logical-name": "windows.h",
                     "source-path": "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\um\\windows.h",
-                    "lookup-method": "include-quote",
+                    "lookup-method": "include-angle",
                     "unique-on-source-path": true
                 },
                 {
